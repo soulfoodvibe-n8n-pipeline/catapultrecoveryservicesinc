@@ -35,8 +35,9 @@ export default function Footer() {
           <h3 style={{ fontSize: '1.2rem', marginBottom: '24px', fontWeight: 600 }}>Contact Us</h3>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px', color: 'var(--foreground-muted)' }}>
             <li>📍 Jacksonville, FL</li>
-            <li>📞 (555) 123-4567</li>
-            <li>✉️ info@catapultrecovery.org</li>
+            <li>📱 Mobile: 904.469.5181</li>
+            <li>📞 Business: 904.834.5150</li>
+            <li>✉️ admin@catapultrecoveryservicesinc.org</li>
           </ul>
         </div>
 
