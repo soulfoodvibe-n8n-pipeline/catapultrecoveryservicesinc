@@ -39,6 +39,11 @@ export default function MarketingEngine() {
     "We want to highlight our recent success stories to drive general brand awareness and build a monthly recurring donor base of 'Catapult Champions'."
   ];
 
+  const handleSurpriseMe = () => {
+    const randomIdea = campaignIdeas[Math.floor(Math.random() * campaignIdeas.length)];
+    setContext(randomIdea);
+  };
+
   const handleSyncBlueprint = async () => {
     setIsSyncing(true);
     try {

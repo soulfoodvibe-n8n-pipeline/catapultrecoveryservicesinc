@@ -1,7 +1,7 @@
 'use server';
 
 import { GoogleGenAI } from '@google/genai';
-import { supabase } from '../lib/supabase';
+import { supabase } from '../../lib/supabase';
 import { client } from '../../../sanity/lib/client';
 
 export async function fetchBlueprintData() {
