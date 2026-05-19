@@ -59,6 +59,16 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 16px;
 }
 
+.event-card-hover {
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.event-card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
 .btn-primary {
   background: linear-gradient(90deg, #F97316, #EA580C);
   color: white;

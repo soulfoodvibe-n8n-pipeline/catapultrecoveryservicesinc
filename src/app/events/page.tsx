@@ -74,32 +74,39 @@ export default async function EventsPage() {
 
 function EventCard({ event }: { event: any }) {
   return (
-    <div className="glass-panel" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-      {event.mainImage && (
-        <img 
-          src={urlForImage(event.mainImage)?.url()} 
-          alt={event.title} 
-          style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
-        />
-      )}
-      <div style={{ padding: '32px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-        <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>{event.title}</h3>
-        
-        <div style={{ display: 'flex', gap: '16px', color: 'var(--primary)', marginBottom: '16px', fontSize: '0.9rem', fontWeight: 600 }}>
-          {event.eventDate && <span>🗓️ {new Date(event.eventDate).toLocaleDateString()}</span>}
-          {event.location && <span>📍 {event.location}</span>}
-        </div>
-
-        <p style={{ color: 'var(--foreground-muted)', lineHeight: 1.6, marginBottom: '32px', flexGrow: 1 }}>
-          {event.descriptionExcerpt ? (event.descriptionExcerpt.substring(0, 150) + '...') : ''}
-        </p>
-
-        {event.registrationLink && !event.isPastEvent && (
-          <a href={event.registrationLink} target="_blank" rel="noreferrer" className="btn-primary" style={{ textAlign: 'center' }}>
-            Register Now
-          </a>
+    <Link href={`/events/${event.slug.current}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+      <div className="glass-panel event-card-hover" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden', height: '100%' }}>
+        {event.mainImage && (
+          <img 
+            src={urlForImage(event.mainImage)?.url()} 
+            alt={event.title} 
+            style={{ width: '100%', height: '240px', objectFit: 'cover' }} 
+          />
         )}
+        <div style={{ padding: '32px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>{event.title}</h3>
+          
+          <div style={{ display: 'flex', gap: '16px', color: 'var(--primary)', marginBottom: '16px', fontSize: '0.9rem', fontWeight: 600 }}>
+            {event.eventDate && <span>🗓️ {new Date(event.eventDate).toLocaleDateString()}</span>}
+            {event.location && <span>📍 {event.location}</span>}
+          </div>
+
+          <p style={{ color: 'var(--foreground-muted)', lineHeight: 1.6, marginBottom: '32px', flexGrow: 1 }}>
+            {event.descriptionExcerpt ? (event.descriptionExcerpt.substring(0, 150) + '...') : ''}
+          </p>
+
+          {event.registrationLink && !event.isPastEvent && (
+            <div className="btn-primary" style={{ textAlign: 'center', marginTop: 'auto' }}>
+              View Details & Register
+            </div>
+          )}
+          {(!event.registrationLink || event.isPastEvent) && (
+            <div style={{ color: 'var(--primary)', fontWeight: 600, fontSize: '0.9rem', marginTop: 'auto' }}>
+              View Details →
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
