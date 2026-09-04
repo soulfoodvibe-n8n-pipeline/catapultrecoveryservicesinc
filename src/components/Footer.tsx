@@ -1,6 +1,14 @@
+'use client'
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/studio')) {
+    return null;
+  }
+
   return (
     <footer style={{ background: 'var(--surface)', borderTop: '1px solid var(--surface-border)', paddingTop: '64px', paddingBottom: '32px' }}>
       <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '48px', marginBottom: '64px' }}>

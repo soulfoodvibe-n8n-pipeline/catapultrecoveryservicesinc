@@ -1,6 +1,14 @@
+'use client'
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/studio')) {
+    return null;
+  }
+
   return (
     <nav style={{ padding: '24px 0', position: 'absolute', top: 0, left: 0, right: 0, zIndex: 100 }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
